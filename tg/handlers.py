@@ -1,10 +1,11 @@
 from aiogram import types
 from aiogram.types import ContentType
 from tg.utils import States
-from tg.messages import MESSAGES, BUILDINGS_LIST
+from tg.messages import MESSAGES, BUILDINGS_DICT
 from tg.keyboards import *
-import os
+
 import os.path
+import os
 
 from main import dp, bot
 
@@ -31,12 +32,12 @@ async def process_get_photo_command(msg: types.Message):
 @dp.message_handler(state=States.STATE1_GET_BUILDING)
 async def process_get_building_command(msg: types.Message):
     state = dp.current_state(user=msg.from_user.id)
-    if msg.text not in BUILDINGS_LIST:
+    if msg.text not in BUILDINGS_DICT.keys():
         await bot.send_message(msg.from_user.id, MESSAGES["building_error"],
                                reply_markup=choose_building_markup)
         await state.set_state(States.all()[0])
     else:
-        await state.update_data(building=msg.text)
+        await state.update_data(building=BUILDINGS_DICT[msg.text])
         await bot.send_message(msg.from_user.id, MESSAGES["ask_room"])
         await state.set_state(States.all()[1])
 
@@ -56,11 +57,12 @@ async def process_get_room_command(msg: types.Message):
         else:
             state_data = await state.get_data()
             building = state_data["building"]
+            new_filename = f"photos/{building}/{number}--({k}).jpg"
             k = 0
-            new_filename = f"photos/{building}--{number}--({k}).jpg"
             while os.path.exists(new_filename):
                 k += 1
-                new_filename = f"photos/{building}--{number}--({k}).jpg"
-            os.rename("photos/base_name.jpg", new_filename)
+                new_filename = f"photos/{building}/{number}--({k}).jpg"
+            os.replace("photos/base_name.jpg", f"photos/{building}/base_name.jpg")
+            os.rename(f"photos/{building}/base_name.jpg", new_filename)
             await bot.send_message(msg.from_user.id, MESSAGES["finish"])
             await state.finish()
