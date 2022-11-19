@@ -4,10 +4,9 @@ from aiogram.dispatcher import Dispatcher
 from aiogram.utils import executor
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.contrib.middlewares.logging import LoggingMiddleware
-
+from flask_app import app
 
 from config import TOKEN
-
 
 bot = Bot(token=TOKEN)
 dp = Dispatcher(bot, storage=MemoryStorage())
@@ -27,4 +26,5 @@ async def shutdown(dispatcher: Dispatcher):
 
 
 if __name__ == '__main__':
+    app.run()
     executor.start_polling(dp)
