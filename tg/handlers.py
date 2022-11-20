@@ -7,6 +7,7 @@ from tg.keyboards import *
 import os.path
 import os
 import datetime as dt
+from lib.funks import check_date
 
 from main import dp, bot
 
@@ -63,6 +64,8 @@ async def process_get_room_command(msg: types.Message):
             for part in prev_date.split("-"):
                 date.append(part[::-1])
             date = "-".join(date)
+            for filename in check_date(f"flask_app/static/photos/{building}"):
+                os.remove(filename)
             k = 0
             new_filename = f"flask_app/static/photos/{building}/{date}--{number}--({k}).jpg"
             while os.path.exists(new_filename):

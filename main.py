@@ -5,6 +5,7 @@ from aiogram.utils import executor
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.contrib.middlewares.logging import LoggingMiddleware
 from flask_app import app
+import schedule
 
 from config import TOKEN
 

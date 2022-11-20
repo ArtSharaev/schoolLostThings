@@ -1,17 +1,6 @@
 from flask_app import app
 from flask import render_template, request, url_for
-from os import listdir
-
-
-def get_files(path) -> list:
-    array = []
-    full_path = "flask_app/static/" + path
-    for filename in listdir(full_path):
-        filename = path + "/" + filename
-        array.append(filename)
-    sorted_arr = list(sorted(array, key=lambda x: x.split("--")[0]))
-    sorted_arr.reverse()
-    return sorted_arr
+from lib.funks import get_files
 
 
 @app.route('/', methods=['POST', 'GET'])
