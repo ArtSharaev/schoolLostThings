@@ -26,5 +26,5 @@ async def shutdown(dispatcher: Dispatcher):
 
 
 if __name__ == '__main__':
-    app.run(host="192.168.43.194", port=5000)
+    app.run(host="0.0.0.0", port=5000)
     executor.start_polling(dp)
