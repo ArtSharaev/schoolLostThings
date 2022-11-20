@@ -6,6 +6,7 @@ from tg.keyboards import *
 
 import os.path
 import os
+import datetime as dt
 
 from main import dp, bot
 
@@ -57,11 +58,16 @@ async def process_get_room_command(msg: types.Message):
         else:
             state_data = await state.get_data()
             building = state_data["building"]
+            prev_date = str(dt.datetime.now().date())[::-1]
+            date = []
+            for part in prev_date.split("-"):
+                date.append(part[::-1])
+            date = "-".join(date)
             k = 0
-            new_filename = f"flask_app/static/photos/{building}/{number}--({k}).jpg"
+            new_filename = f"flask_app/static/photos/{building}/{date}--{number}--({k}).jpg"
             while os.path.exists(new_filename):
                 k += 1
-                new_filename = f"flask_app/static/photos/{building}/{number}--({k}).jpg"
+                new_filename = f"flask_app/static/photos/{building}/{date}--{number}--({k}).jpg"
             os.replace("flask_app/static/photos/base_name.jpg",
                        f"flask_app/static/photos/{building}/base_name.jpg")
             os.rename(f"flask_app/static/photos/{building}/base_name.jpg",

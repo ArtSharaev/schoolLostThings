@@ -1,4 +1,4 @@
-h1, h3 {
+h1, h3, h4 {
     font-family: "Calibri";
     text-align: center;
 }
@@ -41,4 +41,10 @@ a:-webkit-any-link {
     display: flex;
     align-items: stretch;
     flex-direction: column;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }

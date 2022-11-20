@@ -9,8 +9,14 @@
 <h1>{{ building_name }}</h1>
 <div class="container">
     {% for file in photos %}
-    <p>{{ file }}</p>
-        <img src="{{ url_for('static',  filename=file) }}" alt="Not found">
+    <p></p>
+    <img src="{{ url_for('static',  filename=file) }}" alt="file"
+         class="center">
+    {% set info = file.split("/")[-1] %}
+    {% set date = info.split("--")[0] %}
+    {% set number = info.split("--")[1] %}
+    <h4>Найдено {{ date }} возле кабинета номер {{ number }}.</h4>
+
     {% endfor %}
 </div>
 </body>
