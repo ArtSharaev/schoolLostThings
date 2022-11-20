@@ -22,7 +22,7 @@ async def process_help_command(msg: types.Message):
 
 @dp.message_handler(content_types=ContentType.PHOTO)
 async def process_get_photo_command(msg: types.Message):
-    await msg.photo[-1].download("photos/base_name.jpg")
+    await msg.photo[-1].download("flask_app/static/photos/base_name.jpg")
     state = dp.current_state(user=msg.from_user.id)
     await bot.send_message(msg.from_user.id, MESSAGES["ask_building"],
                            reply_markup=choose_building_markup)
@@ -57,12 +57,14 @@ async def process_get_room_command(msg: types.Message):
         else:
             state_data = await state.get_data()
             building = state_data["building"]
-            new_filename = f"photos/{building}/{number}--({k}).jpg"
             k = 0
+            new_filename = f"flask_app/static/photos/{building}/{number}--({k}).jpg"
             while os.path.exists(new_filename):
                 k += 1
-                new_filename = f"photos/{building}/{number}--({k}).jpg"
-            os.replace("photos/base_name.jpg", f"photos/{building}/base_name.jpg")
-            os.rename(f"photos/{building}/base_name.jpg", new_filename)
+                new_filename = f"flask_app/static/photos/{building}/{number}--({k}).jpg"
+            os.replace("flask_app/static/photos/base_name.jpg",
+                       f"flask_app/static/photos/{building}/base_name.jpg")
+            os.rename(f"flask_app/static/photos/{building}/base_name.jpg",
+                      new_filename)
             await bot.send_message(msg.from_user.id, MESSAGES["finish"])
             await state.finish()

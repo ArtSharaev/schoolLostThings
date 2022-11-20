@@ -1,7 +1,14 @@
+h1, h3 {
+    font-family: "Calibri";
+    text-align: center;
+}
 h1 {
-  font-family: "Calibri";
-  font-size: 200;
-  text-align: center;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    font-size: 72;
+}
+h3 {
+    font-size: 48;
 }
 a:-webkit-any-link {
     cursor: pointer;
@@ -34,5 +41,4 @@ a:-webkit-any-link {
     display: flex;
     align-items: stretch;
     flex-direction: column;
-    padding: 2rem;
 }

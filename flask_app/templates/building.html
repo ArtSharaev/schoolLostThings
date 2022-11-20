@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Proton-LT</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<h1>{{ building_name }}</h1>
+<div class="container">
+    {% for file in photos %}
+    <p>{{ file }}</p>
+        <img src="{{ url_for('static',  filename=file) }}" alt="Not found">
+    {% endfor %}
+</div>
+</body>
+</html>
