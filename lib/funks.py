@@ -3,6 +3,7 @@ import datetime as dt
 
 
 def check_date(path) -> list:
+    """Проверка фотографий на истечение срока давности в 1 месяц"""
     arr = []
     for filename in listdir(path):
         date = filename.split("--")[0]
@@ -20,11 +21,18 @@ def check_date(path) -> list:
 
 
 def get_files(path) -> list:
+    """Сортировка фотографий по дате"""
     array = []
     full_path = "flask_app/static/" + path
     for filename in listdir(full_path):
         filename = path + "/" + filename
         array.append(filename)
-    sorted_arr_0 = list(sorted(array, key=lambda x: x.split("--")[1]))
-    sorted_arr = list(sorted(sorted_arr_0, key=lambda x: x.split("--")[0]))
-    return sorted_arr
+    sorted_array = list(reversed(sorted(array,
+                                        key=lambda x: int(
+                                            x.split("/")[-1].split("--")[
+                                                0].split("-")[0]))))
+    sorted_array = list(sorted(sorted_array,
+                               key=lambda x: -int(
+                                   x.split("/")[-1].split("--")[0].split("-")[
+                                       1])))
+    return sorted_array
