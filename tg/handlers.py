@@ -9,7 +9,7 @@ import os
 import datetime as dt
 from lib.funks import check_date
 
-from main import dp, bot
+from bot_main import dp, bot
 
 
 @dp.message_handler(commands=['start'])
