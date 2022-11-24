@@ -1,8 +1,7 @@
 from aiogram.types import ReplyKeyboardRemove, \
-    ReplyKeyboardMarkup, KeyboardButton, \
-    InlineKeyboardMarkup, InlineKeyboardButton
+    ReplyKeyboardMarkup, KeyboardButton
 
-empty_kb = ReplyKeyboardRemove()
+
 choose_building_markup = ReplyKeyboardMarkup(resize_keyboard=True,
                                              one_time_keyboard=True)
 btn1 = KeyboardButton("Барклая, дом 15, к. 3 (𝟭𝟰𝟵𝟳)")

@@ -1,5 +1,5 @@
 import logging
-from aiogram import Bot, types
+from aiogram import Bot
 from aiogram.dispatcher import Dispatcher
 from aiogram.utils import executor
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
@@ -18,7 +18,7 @@ dp.middleware.setup(LoggingMiddleware())
 from tg.handlers import *
 
 
-async def shutdown(dispatcher: Dispatcher):
+async def shutdown(dispatcher: Dispatcher) -> None:
     await dispatcher.storage.close()
     await dispatcher.storage.wait_closed()
 
