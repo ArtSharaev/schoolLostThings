@@ -7,7 +7,7 @@ from tg.keyboards import *
 import os.path
 import os
 import datetime as dt
-from lib.funks import check_date
+from lib.funks import check_date, update_users_json
 
 from bot_main import dp, bot
 
@@ -57,6 +57,7 @@ async def process_get_room_command(msg: types.Message):
             await bot.send_message(msg.from_user.id, MESSAGES["room_error"])
             await state.set_state(States.all()[1])
         else:
+            update_users_json(str(msg.from_user.id))
             state_data = await state.get_data()
             building = state_data["building"]
             prev_date = str(dt.datetime.now().date())[::-1]
