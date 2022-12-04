@@ -27,15 +27,17 @@ def get_files(path) -> list:
     """Сортировка фотографий по дате"""
     array = []
     full_path = "flask_app/static/" + path
-    for filename in listdir(full_path):
-        filename = path + "/" + filename
-        array.append(filename)
-    sorted_array = list(reversed(sorted(array,
-                                        key=lambda x: int(
-                                            x.split("/")[-1].split("--")[
-                                                0].split("-")[0]))))
-    sorted_array = list(sorted(sorted_array,
-                               key=lambda x: -int(
-                                   x.split("/")[-1].split("--")[0].split("-")[
-                                       1])))
-    return sorted_array
+    if os.path.exists(path):
+        for filename in listdir(full_path):
+            filename = path + "/" + filename
+            array.append(filename)
+        sorted_array = list(reversed(sorted(array,
+                                            key=lambda x: int(
+                                                x.split("/")[-1].split("--")[
+                                                    0].split("-")[0]))))
+        sorted_array = list(sorted(sorted_array,
+                                   key=lambda x: -int(
+                                       x.split("/")[-1].split("--")[0].split("-")[
+                                           1])))
+        return sorted_array
+    return array
