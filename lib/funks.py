@@ -27,7 +27,7 @@ def get_files(path) -> list:
     """Сортировка фотографий по дате"""
     array = []
     full_path = "flask_app/static/" + path
-    if os.path.exists(path):
+    if os.path.exists(full_path):
         for filename in listdir(full_path):
             filename = path + "/" + filename
             array.append(filename)
