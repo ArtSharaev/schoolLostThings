@@ -1,3 +1,4 @@
+import os
 from os import listdir
 import datetime as dt
 
@@ -5,6 +6,8 @@ import datetime as dt
 def check_date(path) -> list:
     """Проверка фотографий на истечение срока давности в 1 месяц"""
     arr = []
+    if not os.path.exists(path):
+        os.mkdir(path)
     for filename in listdir(path):
         date = filename.split("--")[0]
         month = date.split("-")[1]
