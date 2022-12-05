@@ -9,6 +9,7 @@ import os
 import datetime as dt
 from lib.funks import check_date, update_users_json
 
+from bot_main import submit_logger
 from bot_main import dp, bot
 
 
@@ -57,6 +58,7 @@ async def get_room(msg: types.Message):
             await bot.send_message(msg.from_user.id, MESSAGES["room_error"])
             await state.set_state(States.all()[1])
         else:
+            submit_logger.update(msg, str(dt.datetime.now()), number)
             update_users_json(str(msg.from_user.id),
                               str(msg.from_user.full_name))
             state_data = await state.get_data()
