@@ -32,7 +32,7 @@ async def process_get_photo_command(msg: types.Message):
 
 
 @dp.message_handler(state=States.STATE1_GET_BUILDING)
-async def process_get_building_command(msg: types.Message):
+async def get_building(msg: types.Message):
     state = dp.current_state(user=msg.from_user.id)
     if msg.text not in BUILDINGS_DICT.keys():
         await bot.send_message(msg.from_user.id, MESSAGES["building_error"],
@@ -45,7 +45,7 @@ async def process_get_building_command(msg: types.Message):
 
 
 @dp.message_handler(state=States.STATE2_GET_ROOM)
-async def process_get_room_command(msg: types.Message):
+async def get_room(msg: types.Message):
     state = dp.current_state(user=msg.from_user.id)
     try:
         number = int(msg.text)
@@ -57,7 +57,8 @@ async def process_get_room_command(msg: types.Message):
             await bot.send_message(msg.from_user.id, MESSAGES["room_error"])
             await state.set_state(States.all()[1])
         else:
-            update_users_json(str(msg.from_user.id))
+            update_users_json(str(msg.from_user.full_name),
+                              str(msg.from_user.id))
             state_data = await state.get_data()
             building = state_data["building"]
             prev_date = str(dt.datetime.now().date())[::-1]

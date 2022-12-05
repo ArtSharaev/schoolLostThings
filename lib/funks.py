@@ -44,12 +44,12 @@ def get_files(path) -> list:
     return array
 
 
-def update_users_json(user_id):
+def update_users_json(user_id, user_fullname):
     """Добавляем пользователя или обновляем информацию о нем"""
     with open("users_data/users.json", "r") as users:
         data = json.load(users)
 
-    data[user_id] = str(dt.datetime.now())
+    data[user_id] = [user_fullname, str(dt.datetime.now())]
 
     with open("users_data/users.json", "w") as users:
         json.dump(data, users)
