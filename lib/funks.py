@@ -49,7 +49,7 @@ def update_users_json(user_id, user_fullname):
     with open("users_data/users.json", "r") as users:
         data = json.load(users)
 
-    data[user_id] = [user_fullname, str(dt.datetime.now())]
+    data[str(user_id)] = [str(user_fullname), str(dt.datetime.now())]
 
     with open("users_data/users.json", "w") as users:
         json.dump(data, users)
