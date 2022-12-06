@@ -7,7 +7,9 @@ from tg.keyboards import *
 import os.path
 import os
 import datetime as dt
-from lib.funks import check_date, update_users_json
+from lib.funks import update_users_json
+from lib.files_working import del_outdated_files, save_photo, \
+    generate_unique_filename
 
 from bot_main import submit_logger
 from bot_main import dp, bot
@@ -48,36 +50,31 @@ async def get_building(msg: types.Message):
 @dp.message_handler(state=States.STATE2_GET_ROOM)
 async def get_room(msg: types.Message):
     state = dp.current_state(user=msg.from_user.id)
+    state_data = await state.get_data()
     try:
-        number = int(msg.text)
+        room_number = int(msg.text)
     except ValueError:
         await bot.send_message(msg.from_user.id, MESSAGES["room_error"])
         await state.set_state(States.all()[1])
     else:
-        if number > 999 or number < 100:
-            await bot.send_message(msg.from_user.id, MESSAGES["room_error"])
-            await state.set_state(States.all()[1])
-        else:
+        if 100 <= room_number <= 999:
             update_users_json(str(msg.from_user.id),
                               str(msg.from_user.full_name))
-            state_data = await state.get_data()
             building = state_data["building"]
-            prev_date = str(dt.datetime.now().date())[::-1]
+            now_date = str(dt.datetime.now().date())[::-1]
             date = []
-            for part in prev_date.split("-"):
+            for part in now_date.split("-"):
                 date.append(part[::-1])
             date = "-".join(date)
-            for filename in check_date(f"flask_app/static/photos/{building}"):
-                os.remove(filename)
-            k = 0
-            new_filename = f"flask_app/static/photos/{building}/{date}--{number}--({k}).jpg"
-            while os.path.exists(new_filename):
-                k += 1
-                new_filename = f"flask_app/static/photos/{building}/{date}--{number}--({k}).jpg"
-            os.replace("flask_app/static/photos/base_name.jpg",
-                       f"flask_app/static/photos/{building}/base_name.jpg")
-            os.rename(f"flask_app/static/photos/{building}/base_name.jpg",
-                      new_filename)
-            submit_logger.update(msg, str(dt.datetime.now()), number, f"{building}/{date}--{number}--({k}).jpg")
+            del_outdated_files(f"flask_app/static/photos/{building}")
+            filename = generate_unique_filename(
+                f"flask_app/static/photos/{building}", date, room_number)
+            save_photo(f"flask_app/static/photos/{building}", filename)
+            submit_logger.update(msg, str(dt.datetime.now()), room_number,
+                                 f"{filename.split('/')[-2]}/"
+                                 f"{filename.split('/')[-1]}")
             await bot.send_message(msg.from_user.id, MESSAGES["finish"])
             await state.finish()
+        else:
+            await bot.send_message(msg.from_user.id, MESSAGES["room_error"])
+            await state.set_state(States.all()[1])

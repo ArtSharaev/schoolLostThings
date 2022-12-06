@@ -1,4 +1,5 @@
 class SubmitLogger:
+    """Класс для отслеживания всех сабмитов пользователей"""
     def __init__(self, filepath="users_data/submits.txt") -> None:
         self.filepath = filepath
 
