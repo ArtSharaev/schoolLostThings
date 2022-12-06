@@ -58,7 +58,6 @@ async def get_room(msg: types.Message):
             await bot.send_message(msg.from_user.id, MESSAGES["room_error"])
             await state.set_state(States.all()[1])
         else:
-            submit_logger.update(msg, str(dt.datetime.now()), number)
             update_users_json(str(msg.from_user.id),
                               str(msg.from_user.full_name))
             state_data = await state.get_data()
@@ -79,5 +78,6 @@ async def get_room(msg: types.Message):
                        f"flask_app/static/photos/{building}/base_name.jpg")
             os.rename(f"flask_app/static/photos/{building}/base_name.jpg",
                       new_filename)
+            submit_logger.update(msg, str(dt.datetime.now()), number, f"{building}/{date}--{number}--({k}).jpg")
             await bot.send_message(msg.from_user.id, MESSAGES["finish"])
             await state.finish()
