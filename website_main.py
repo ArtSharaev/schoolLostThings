@@ -5,7 +5,7 @@ from flask_app import app
 logging.basicConfig(format=u'%(filename)+13s [ LINE:%(lineno)-4s]'
                            u' %(levelname)-8s [%(asctime)s] %(message)s',
                     level=logging.DEBUG,
-                    filename='website-logging.log',
+                    filename='logging/website-logging.log',
                     filemode='w')
 
 

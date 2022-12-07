@@ -41,3 +41,23 @@ def save_photo(path_to_dir, filename) -> None:
                f"{path_to_dir}/base_name.jpg")
     os.rename(f"{path_to_dir}/base_name.jpg",
               filename)
+
+
+def get_files(path) -> list:
+    """Получение списка фотографий для рендеринга на странице"""
+    array = []
+    full_path = "flask_app/static/" + path
+    if os.path.exists(full_path):
+        for filename in listdir(full_path):
+            filename = path + "/" + filename
+            array.append(filename)
+        sorted_array = list(reversed(sorted(array,
+                                            key=lambda x: int(
+                                                x.split("/")[-1].split("--")[
+                                                    0].split("-")[0]))))
+        sorted_array = list(sorted(sorted_array,
+                                   key=lambda x: -int(
+                                       x.split("/")[-1].split("--")[0].split("-")[
+                                           1])))
+        return sorted_array
+    return array

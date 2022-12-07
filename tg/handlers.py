@@ -3,12 +3,9 @@ from aiogram.types import ContentType
 from tg.utils import States
 from tg.messages import MESSAGES, BUILDINGS_DICT
 from tg.keyboards import *
-
-import os.path
-import os
 import datetime as dt
-from lib.funks import update_users_json
-from lib.files_working import del_outdated_files, save_photo, \
+from tools.funks import update_users_json
+from tools.file_tools import del_outdated_files, save_photo, \
     generate_unique_filename
 
 from bot_main import submit_logger
@@ -58,8 +55,6 @@ async def get_room(msg: types.Message):
         await state.set_state(States.all()[1])
     else:
         if 100 <= room_number <= 999:
-            update_users_json(str(msg.from_user.id),
-                              str(msg.from_user.full_name))
             building = state_data["building"]
             now_date = str(dt.datetime.now().date())[::-1]
             date = []

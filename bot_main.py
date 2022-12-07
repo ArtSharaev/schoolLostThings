@@ -4,7 +4,7 @@ from aiogram.dispatcher import Dispatcher
 from aiogram.utils import executor
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.contrib.middlewares.logging import LoggingMiddleware
-from users_data.submitLogger import SubmitLogger
+from logging.submitsLogger import SubmitLogger
 
 from config import TOKEN
 
@@ -16,7 +16,7 @@ dp = Dispatcher(bot, storage=MemoryStorage())
 logging.basicConfig(format=u'%(filename)+13s [ LINE:%(lineno)-4s]'
                            u' %(levelname)-8s [%(asctime)s] %(message)s',
                     level=logging.DEBUG,
-                    filename='bot-logging.log',
+                    filename='logging/bot-logging.log',
                     filemode='w')
 dp.middleware.setup(LoggingMiddleware())
 submit_logger = SubmitLogger()
