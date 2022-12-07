@@ -4,10 +4,8 @@ from tg.utils import States
 from tg.messages import MESSAGES, BUILDINGS_DICT
 from tg.keyboards import *
 import datetime as dt
-from tools.funks import update_users_json
 from tools.file_tools import del_outdated_files, save_photo, \
     generate_unique_filename
-
 from bot_main import submit_logger
 from bot_main import dp, bot
 

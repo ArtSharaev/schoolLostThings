@@ -1,6 +1,6 @@
 class SubmitLogger:
     """Класс для отслеживания всех сабмитов пользователей"""
-    def __init__(self, filepath="logging/submits.txt") -> None:
+    def __init__(self, filepath="logging_lib/submits.txt") -> None:
         self.filepath = filepath
 
     def update(self, message, time, room_number, filename) -> None:
