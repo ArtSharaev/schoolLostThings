@@ -4,8 +4,8 @@ from tg.utils import States
 from tg.messages import MESSAGES, BUILDINGS_DICT
 from tg.keyboards import *
 import datetime as dt
-from tools.file_tools import del_outdated_files, save_photo, \
-    generate_unique_filename
+from tools.tools import delete_outdated_files, save_photo, \
+    generate_unique_filename, get_formatted_now_date
 from bot_main import submit_logger
 from bot_main import dp, bot
 
@@ -48,26 +48,18 @@ async def get_room(msg: types.Message):
     state_data = await state.get_data()
     try:
         room_number = int(msg.text)
+        if not 100 <= room_number <= 999:
+            raise ValueError
     except ValueError:
         await bot.send_message(msg.from_user.id, MESSAGES["room_error"])
         await state.set_state(States.all()[1])
     else:
-        if 100 <= room_number <= 999:
-            building = state_data["building"]
-            now_date = str(dt.datetime.now().date())[::-1]
-            date = []
-            for part in now_date.split("-"):
-                date.append(part[::-1])
-            date = "-".join(date)
-            del_outdated_files(f"flask_app/static/photos/{building}")
-            filename = generate_unique_filename(
-                f"flask_app/static/photos/{building}", date, room_number)
-            save_photo(f"flask_app/static/photos/{building}", filename)
-            submit_logger.update(msg, str(dt.datetime.now()), room_number,
-                                 f"{filename.split('/')[-2]}/"
-                                 f"{filename.split('/')[-1]}")
-            await bot.send_message(msg.from_user.id, MESSAGES["finish"])
-            await state.finish()
-        else:
-            await bot.send_message(msg.from_user.id, MESSAGES["room_error"])
-            await state.set_state(States.all()[1])
+        building = state_data["building"]
+        date = get_formatted_now_date()
+        delete_outdated_files(building)
+        filename = generate_unique_filename(date, room_number)
+        save_photo(building, filename)
+        submit_logger.update(msg, str(dt.datetime.now()), room_number,
+                             f"{building}/{filename}")
+        await bot.send_message(msg.from_user.id, MESSAGES["finish"])
+        await state.finish()
