@@ -48,7 +48,10 @@ def get_files(path) -> list:
     array = []
     full_path = "flask_app/static/" + path
     if os.path.exists(full_path):
+
         for filename in listdir(full_path):
+            if filename == "base_name.jpg":
+                continue
             filename = path + "/" + filename
             array.append(filename)
         sorted_array = list(reversed(sorted(array,
