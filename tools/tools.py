@@ -50,7 +50,7 @@ def get_files(path) -> list:
     if os.path.exists(full_path):
 
         for filename in listdir(full_path):
-            if filename == "base_name.jpg":
+            if filename == "base_name.jpg" or filename == ".gitignore":
                 continue
             filename = path + "/" + filename
             array.append(filename)
