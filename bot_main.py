@@ -6,7 +6,8 @@ from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.contrib.middlewares.logging import LoggingMiddleware
 from logging_lib.submitsLogger import SubmitLogger
 
-from config import TOKEN
+with open("tg/BOTTOKEN.txt", "r") as f:
+    TOKEN = f.readlines()[0].strip()
 
 # for pythonanywhere
 # proxy_url = 'http://proxy.server:3128'
