@@ -271,7 +271,7 @@ a:-webkit-any-link {
 hr {
     background-image: linear-gradient(to right, transparent, transparent, black, black, transparent, transparent);
     border: 0;
-    height: 1px;
+    height: 2px;
     margin: 22px 0 16px 0;
     box-sizing: content-box;
     display: block;
@@ -375,4 +375,14 @@ div.thing {
 img.round {
     border-radius: 20px;
     object-fit: cover;
+}
+
+.footer {
+    font-family: "Franklin Gothic";
+    text-align: center;
+    background-color: #f0f0f0;
+    height: 50px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
 }
