@@ -330,3 +330,49 @@ h10 {
     padding-bottom: 0%;
     font-size: 12px;
 }
+
+div.building {
+    vertical-align: top;
+    gap: 32px;
+    text-align: center;
+    margin-top: 32px;
+    margin-bottom: 32px;
+    padding: 1rem !important;
+    justify-content: center;
+    display: flex;
+    align-items: stretch;
+    flex-direction: row;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+
+div.thingrow {
+    vertical-align: top;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+
+div.thingcolumn {
+    vertical-align: top;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+
+div.thing {
+    vertical-align: top;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+img.round {
+    border-radius: 20px;
+    object-fit: cover;
+}
