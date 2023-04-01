@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: #1c3249;
+    background-color: #fffafa;
     position: relative;
     font-family: 'Montserrat', sans-serif;
 }
@@ -15,9 +15,46 @@ section.gallery {
     padding: 45px 0;
 }
 
-h2.title {
-    font-size: 44px;
+h2 {
+    font-family: "Calibri";
+    text-align: center;
+    color: fff;
+    padding-top: 0%;
+    padding-bottom: 3%;
+    font-size: 30px;
+}
+
+h7 {
+    font-family: "Calibri";
+    text-align: center;
     font-weight: bold;
+    color: fff;
+    padding-top: 3%;
+    padding-bottom: 0%;
+    font-size: 24px;
+}
+
+h8 {
+    font-family: "Franklin Gothic";
+    text-align: center;
+    font-weight: bold;
+    color: #595959;
+    padding-top: 0%;
+    padding-bottom: 2%;
+    font-size: 18px;
+}
+
+h6 {
+    font-family: "Franklin Gothic";
+    text-align: center;
+    color: #595959;
+    padding-top: 0%;
+    padding-bottom: 3%;
+    font-size: 24px;
+}
+
+h2.title {
+    font-size: 36px;
     text-align: center;
     padding-bottom: 45px;
     position: relative;
@@ -28,7 +65,7 @@ h2.title:after {
     position: absolute;
     width: 100px;
     height: 3px;
-    background-color: #111111;
+    background-color: #4dc5;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
@@ -100,16 +137,28 @@ h2.title:after {
     }
 }
 
-h1, h2, h3, h4 {
+h3, h4 {
     font-family: "Calibri";
     text-align: center;
-    color: azure;
+    color: fff;
 }
 
 h1 {
-    padding-top: 2%;
+    font-family: "Calibri";
+    text-align: center;
+    color: fff;
+    padding-top: 3%;
+    padding-bottom: 0%;
+    font-size: 42px;
+}
+
+h5 {
+    font-family: "Franklin Gothic";
+    text-align: center;
+    color: #595959;
+    padding-top: 0%;
     padding-bottom: 2%;
-    font-size: 72;
+    font-size: 24px;
 }
 
 h3 {
@@ -151,7 +200,7 @@ a:-webkit-any-link {
     display: flex;
     align-items: stretch;
     flex-direction: row;
-    gap: 20px;
+    gap: 32px;
     flex-wrap: wrap;
 }
 
@@ -181,9 +230,6 @@ a:-webkit-any-link {
 
 .container-button > span {
     /* vertical-align: middle; */
-    border-color: azure;
-    border-style: solid;
-    border-width: 5px;
     bottom: 0px;
     width: 500px;
     height: 300px;
@@ -193,35 +239,94 @@ a:-webkit-any-link {
 }
 
 .container-button_1 {
+    border-radius: 20px;
     background-image: url('{{../../photos_schools/B15-3.jpg');
 
 }
 
 .container-button_2 {
+    border-radius: 20px;
     background-image: url('{{../../photos_schools/BF15.jpg');
 
 }
 
 .container-button_3 {
+    border-radius: 20px;
     background-image: url('{{../../photos_schools/N19.jpg');
 
 }
 
 .container-button_4 {
+    border-radius: 20px;
     background-image: url('{{../../photos_schools/FB13-2.jpg');
 
 }
 
 .container-button_5 {
+    border-radius: 20px;
     background-image: url('{{../../photos_schools/FB3-2.jpg');
 
 }
 
 hr {
-    background-image: linear-gradient(to right, transparent, azure, transparent);
+    background-image: linear-gradient(to right, transparent, transparent, black, black, transparent, transparent);
     border: 0;
-    height: 2px;
-    margin: 22px 0 22px 0;
+    height: 1px;
+    margin: 22px 0 16px 0;
     box-sizing: content-box;
     display: block;
+}
+
+div.item {
+    vertical-align: top;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+div.label {
+    vertical-align: top;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 12px;
+    flex-direction: row;
+    text-align: center;
+    margin-top: 32px;
+    margin-bottom: 36px;
+}
+
+div.labelimage {
+    vertical-align: top;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+div.labeltext {
+    vertical-align: top;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-top: 3px;
+}
+
+h9 {
+    font-family: "Calibri";
+    text-align: left;
+    font-weight: bold;
+    color: fff;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    font-size: 20px;
+}
+
+h10 {
+    font-family: "Franklin Gothic";
+    text-align: left;
+    font-weight: bold;
+    color: fff;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    font-size: 12px;
 }
