@@ -100,7 +100,7 @@ h2.title:after {
     }
 }
 
-h1, h3, h4 {
+h1, h2, h3, h4 {
     font-family: "Calibri";
     text-align: center;
     color: azure;

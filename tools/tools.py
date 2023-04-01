@@ -8,6 +8,8 @@ def get_outdated_files(building) -> list:
     arr = []
     if os.path.exists(f"flask_app/static/photos/{building}"):
         for filename in listdir(f"flask_app/static/photos/{building}"):
+            if filename == "base_name.jpg" or filename == ".gitignore":
+                continue
             date_string = filename.split("--")[0]
             day, month, year = date_string.split("-")
             file_date = dt.date(int(year), int(month), int(day))
