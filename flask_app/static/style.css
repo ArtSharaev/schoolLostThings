@@ -216,3 +216,12 @@ a:-webkit-any-link {
     background-image: url('{{../../photos_schools/FB3-2.jpg');
 
 }
+
+hr {
+    background-image: linear-gradient(to right, transparent, azure, transparent);
+    border: 0;
+    height: 2px;
+    margin: 22px 0 22px 0;
+    box-sizing: content-box;
+    display: block;
+}
