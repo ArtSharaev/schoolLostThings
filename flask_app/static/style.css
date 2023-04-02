@@ -284,6 +284,17 @@ div.item {
     text-align: center;
 }
 
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
 div.label {
     vertical-align: top;
     display: flex;
@@ -352,6 +363,7 @@ div.thingrow {
     display: flex;
     flex-direction: row;
     text-align: center;
+    align: center
     gap: 32px;
     flex-wrap: wrap;
 }
@@ -374,6 +386,11 @@ div.thing {
 
 img.round {
     border-radius: 20px;
+    object-fit: cover;
+}
+
+img.logo {
+    border-radius: 10px;
     object-fit: cover;
 }
 
