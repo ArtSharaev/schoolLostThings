@@ -344,14 +344,13 @@ h10 {
 
 div.building {
     vertical-align: top;
-    gap: 32px;
     text-align: center;
     margin-top: 32px;
     margin-bottom: 32px;
     padding: 1rem !important;
     justify-content: center;
     display: flex;
-    align-items: stretch;
+    align: center;
     flex-direction: row;
     gap: 32px;
     flex-wrap: wrap;
@@ -363,8 +362,8 @@ div.thingrow {
     display: flex;
     flex-direction: row;
     text-align: center;
-    align: center
-    gap: 32px;
+    align: center;
+    grid-gap: 32px;
     flex-wrap: wrap;
 }
 
@@ -381,6 +380,7 @@ div.thing {
     vertical-align: top;
     display: flex;
     flex-direction: column;
+    align: center;
     text-align: center;
 }
 
