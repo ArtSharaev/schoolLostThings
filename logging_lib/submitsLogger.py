@@ -1,7 +1,13 @@
+import os
+
+
 class SubmitLogger:
     """Класс для отслеживания всех сабмитов пользователей"""
     def __init__(self, filepath="logging_lib/submits.txt") -> None:
         self.filepath = filepath
+        if not os.path.exists(self.filepath):
+            with open(self.filepath, 'w') as f:
+                pass
 
     def update(self, message, time, room_number, filename) -> None:
         with open(self.filepath, "a") as file:
