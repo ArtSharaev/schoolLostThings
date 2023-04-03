@@ -47,9 +47,9 @@ async def get_room(msg: types.Message):
     state = dp.current_state(user=msg.from_user.id)
     state_data = await state.get_data()
     try:
-        room_number = int(msg.text)
-        if not 100 <= room_number <= 999:
-            raise ValueError
+        room_number = msg.text
+        # if not 100 <= room_number <= 999:
+        #     raise ValueError
     except ValueError:
         await bot.send_message(msg.from_user.id, MESSAGES["room_error"])
         await state.set_state(States.all()[1])
