@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Proton-LT</title>
-    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
 <h1>Потеряшки</h1>
@@ -12,64 +12,30 @@
 <br></br>
 <h2>Выберите своё здание:</h2>
 <div class="container">
-    <!-- <a class="btn btn-primary" href="/B15-3" role="button">Барклая, дом 15,
-        к. 3
-        (𝟭𝟰𝟵𝟳)</a>
-    <p></p>
-    <a class="btn btn-primary" href="/N19" role="button">Новозаводская, дом
-        19
-        (𝟳𝟯𝟳)</a>
-    <p></p>
-    <a class="btn btn-primary" href="/BF15" role="button">Большая Филевская,
-        дом
-        15
-        (𝟳𝟐)</a>
-    <p></p>
-    <a class="btn btn-primary" href="/FB13-2" role="button">Филевский б-р,
-        дом
-        13 к.
-        2 (𝟭𝟭𝟭𝟰)</a>
-    <p></p>
-    <a class="btn btn-primary" href="/FB3-2" role="button">Филевский б-р,
-        дом 3
-        к. 2
-        (𝟭𝟭𝟭𝟰)</a>
-    <p></p> -->
-    <!-- <div class = "line"> -->
     <div class="item">
-        <a class="container-button container-button_1" href="/B15-3">
-            <span><br></br><br></br><br></br><br></br><br></br><br></br><br></br></span>
-        </a>
+        <a class="container-button container-button_1" href="/B15-3"></a>
         <h7>Барклая, дом 15, к. 3</h7>
         <h8>(Школа 1497)</h8>
     </div>
     <div class="item">
-        <a class="container-button container-button_3" href="/N19">
-            <span><br></br><br></br><br></br><br></br><br></br><br></br><br></br></span>
-        </a>
+        <a class="container-button container-button_3" href="/N19"></a>
         <h7>Новозаводская, дом 19</h7>
         <h8>(Школа 737)</h8>
     </div>
     <div class="item">
-        <a class="container-button container-button_2" href="/BF15">
-            <span><br></br><br></br><br></br><br></br><br></br><br></br><br></br></span>
-        </a>
+        <a class="container-button container-button_2" href="/BF15"></a>
         <h7>Большая Филёвская, дом 15</h7>
         <h8>(Школа 72)</h8>
     </div>
 </div>
 <div class="container">
     <div class="item">
-        <a class="container-button container-button_4" href="/FB13-2">
-            <span><br></br><br></br><br></br><br></br><br></br><br></br><br></br></span>
-        </a>
+        <a class="container-button container-button_4" href="/FB13-2"></a>
         <h7>Филёвский б-р, дом 13, к. 2</h7>
         <h8>(Школа 1114)</h8>
     </div>
     <div class="item">
-        <a class="container-button container-button_5" href="/FB3-2">
-            <span><br></br><br></br><br></br><br></br><br></br><br></br><br></br></span>
-        </a>
+        <a class="container-button container-button_5" href="/FB3-2"></a>
         <h7>Филёвский б-р, дом 3, к. 2</h7>
         <h8>(Школа 1114)</h8>
     </div>
@@ -79,7 +45,8 @@
 <div class="label">
     <div class="labelimage">
         <a href="https://github.com/ArtSharaev/schoolLostThings">
-            <img class="logo" src="static/photos/githublogo.jpg" width="100" height="52" alt="">
+            <img class="logo" src="static/photos/githublogo.jpg" width="100"
+                 height="52" alt="">
         </a>
         <h10>2023</h10>
     </div>
