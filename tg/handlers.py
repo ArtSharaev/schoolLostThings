@@ -57,7 +57,7 @@ async def get_room(msg: types.Message):
         building = state_data["building"]
         date = get_formatted_now_date()
         delete_outdated_files(building)
-        filename = generate_unique_filename(date, room_number)
+        filename = generate_unique_filename(building, date, room_number)
         save_photo(building, filename)
         submit_logger.update(msg, str(dt.datetime.now()), room_number,
                              f"{building}/{filename}")

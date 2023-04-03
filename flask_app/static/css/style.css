@@ -138,31 +138,31 @@ h10 {
 
 .container-button_1 {
     border-radius: 20px;
-    background-image: url('{{../../photos_schools/B15-3.jpg');
+    background-image: url('{{../../../images/B15-3.jpg');
 
 }
 
 .container-button_2 {
     border-radius: 20px;
-    background-image: url('{{../../photos_schools/BF15.jpg');
+    background-image: url('{{../../../images/BF15.jpg');
 
 }
 
 .container-button_3 {
     border-radius: 20px;
-    background-image: url('{{../../photos_schools/N19.jpg');
+    background-image: url('{{../../../images/N19.jpg');
 
 }
 
 .container-button_4 {
     border-radius: 20px;
-    background-image: url('{{../../photos_schools/FB13-2.jpg');
+    background-image: url('{{../../../images/FB13-2.jpg');
 
 }
 
 .container-button_5 {
     border-radius: 20px;
-    background-image: url('{{../../photos_schools/FB3-2.jpg');
+    background-image: url('{{../../../images/FB3-2.jpg');
 
 }
 
@@ -180,10 +180,6 @@ div.item {
     display: flex;
     flex-direction: column;
     text-align: center;
-}
-
-html {
-  height: 100%;
 }
 
 div.label {

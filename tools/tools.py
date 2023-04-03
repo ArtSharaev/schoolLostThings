@@ -27,11 +27,11 @@ def delete_outdated_files(building) -> None:
         os.remove(file)
 
 
-def generate_unique_filename(date, room_number) -> str:
+def generate_unique_filename(building, date, room_number) -> str:
     """Делаем уникальное имя для файла картинки"""
     k = 0
     new_filename = f"{date}--{room_number}--({k}).jpg"
-    while os.path.exists(new_filename):
+    while os.path.exists(f"flask_app/static/photos/{building}/" + new_filename):
         k += 1
         new_filename = f"{date}--{room_number}--({k}).jpg"
     return new_filename

@@ -27,8 +27,8 @@ body {
 /* (C) GALLERY IMAGES */
 .gallery img {
     /* (C1) DIMENSION */
-    width: 100%;
-    height: 150px; /* optional */
+    width: 350px;
+    height: 100%; /* optional */
     padding: 10px;
 }
 
