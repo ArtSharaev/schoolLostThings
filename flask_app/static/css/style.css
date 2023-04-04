@@ -12,7 +12,7 @@ body {
 }
 
 h1 {
-    font-family: "Calibri";
+    font-family: 'Poppins', sans-serif;
     text-align: center;
     color: fff;
     padding-top: 3%;
@@ -21,7 +21,7 @@ h1 {
 }
 
 h2 {
-    font-family: "Calibri";
+    font-family: 'Poppins', sans-serif;
     text-align: center;
     color: fff;
     padding-top: 0%;
@@ -30,7 +30,7 @@ h2 {
 }
 
 h5 {
-    font-family: "Franklin Gothic";
+    font-family: 'Roboto', sans-serif;
     text-align: center;
     color: #595959;
     padding-top: 0%;
@@ -39,7 +39,7 @@ h5 {
 }
 
 h7 {
-    font-family: "Calibri";
+    font-family: 'Poppins', sans-serif;
     text-align: center;
     font-weight: bold;
     color: fff;
@@ -49,7 +49,7 @@ h7 {
 }
 
 h8 {
-    font-family: "Franklin Gothic";
+    font-family: 'Roboto', sans-serif;
     text-align: center;
     font-weight: bold;
     color: #595959;
@@ -59,7 +59,7 @@ h8 {
 }
 
 h9 {
-    font-family: "Calibri";
+    font-family: 'Poppins', sans-serif;
     text-align: left;
     font-weight: bold;
     color: fff;
@@ -69,7 +69,7 @@ h9 {
 }
 
 h10 {
-    font-family: "Franklin Gothic";
+    font-family: 'Poppins', sans-serif;
     text-align: left;
     font-weight: bold;
     color: fff;
