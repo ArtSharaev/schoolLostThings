@@ -1,12 +1,20 @@
 from aiogram.utils.helper import Helper, HelperMode, ListItem
 
 
-class States(Helper):
+class UserStates(Helper):
     mode = HelperMode.snake_case
 
     STATE1_GET_BUILDING = ListItem()
     STATE2_GET_ROOM = ListItem()
 
 
+class AdminStates(Helper):
+    mode = HelperMode.snake_case
+
+    ADMIN_GET_BUILDING = ListItem()
+    ADMIN_GET_PHOTO_TO_DELETE = ListItem()
+
+
 if __name__ == '__main__':
-    print(f'States list: {States.all()}')
+    print(f'UserStates list: {UserStates.all()}')
+    print(f'AdminStates list: {AdminStates.all()}')

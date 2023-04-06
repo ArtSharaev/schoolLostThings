@@ -1,6 +1,6 @@
 help_message = """
 Если вы нашли оставленную вещь, отправьте сюда её фотографию и заполните небольшую анкету.\n
-Перед отправкой фото проверьте, что её еще нет на сайте https://artsharaev.pythonanywhere.com
+Перед отправкой фото проверьте, что её еще нет на сайте lost.protonmos.ru
 """
 start_message = """
 Здравствуйте!\n
@@ -21,9 +21,17 @@ room_error_message = """
 finish_message = """
 Все готово!\n
 Информация о потерянной вещи выложена на сервер. Посмотреть её можно тут:\n
-https://artsharaev.pythonanywhere.com
+lost.protonmos.ru
 """
-
+choose_photo_to_delete = """
+Введите путь к фото, которое хотите удалить.
+"""
+file_not_found = """
+Файл не найден.
+"""
+file_was_deleted = """
+Файл был успешно удалён.
+"""
 MESSAGES = {
     "help": help_message,
     "start": start_message,
@@ -32,6 +40,9 @@ MESSAGES = {
     "ask_room": ask_room_message,
     "room_error": room_error_message,
     "finish": finish_message,
+    "choose_photo": choose_photo_to_delete,
+    "file_not_found": file_not_found,
+    "file_was_deleted": file_was_deleted,
 }
 
 BUILDINGS_DICT = {

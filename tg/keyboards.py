@@ -12,3 +12,5 @@ choose_building_markup.row(btn3)
 btn4 = KeyboardButton("Филевский б-р, дом 13, к. 2")
 btn5 = KeyboardButton("Филевский б-р, дом 3, к. 2")
 choose_building_markup.row(btn4, btn5)
+
+empty_markup = ReplyKeyboardRemove()

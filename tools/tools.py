@@ -75,3 +75,12 @@ def get_formatted_now_date() -> str:
     for part in now_date.split("-"):
         date.append(part[::-1])
     return "-".join(date)
+
+
+def is_admin(tg_id: int) -> bool:
+    if os.path.exists("tg/ADMINISTRATORS.txt"):
+        with open("tg/ADMINISTRATORS.txt") as f:
+            ids = list(map(int, f.readlines()))
+        if tg_id in ids:
+            return True
+    return False
