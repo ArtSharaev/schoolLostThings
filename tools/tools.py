@@ -37,14 +37,6 @@ def generate_unique_filename(building, date, room_number) -> str:
     return new_filename
 
 
-def save_photo(building, filename) -> None:
-    """Превращаем буферное сохранение в нормальное"""
-    os.replace("flask_app/static/photos/base_name.jpg",
-               f"flask_app/static/photos/{building}/base_name.jpg")
-    os.rename(f"flask_app/static/photos/{building}/base_name.jpg",
-              f"flask_app/static/photos/{building}/{filename}")
-
-
 def get_files(path) -> list:
     """Получение списка фотографий для рендеринга на странице"""
     array = []

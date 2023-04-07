@@ -6,6 +6,7 @@ class UserStates(Helper):
 
     STATE1_GET_BUILDING = ListItem()
     STATE2_GET_ROOM = ListItem()
+    STATE3_GET_PHOTO = ListItem()
 
 
 class AdminStates(Helper):
