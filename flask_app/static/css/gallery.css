@@ -11,7 +11,7 @@ body {
 .gallery {
     /* (B1) GRID LAYOUT - 3 IMAGES PER ROW */
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 20px;
+    grid-gap: 2px;
 
     /* (B2) OPTIONAL WIDTH RESTRICT */
     max-width: 1000px;
