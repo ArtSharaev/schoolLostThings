@@ -19,7 +19,7 @@ btn = KeyboardButton("Отмена")
 escape_markup.row(btn)
 
 add_markup = ReplyKeyboardMarkup(resize_keyboard=True)
-btn_add = KeyboardButton("/add")
+btn_add = KeyboardButton(text="/add")
 add_markup.row(btn_add)
 
 empty_markup = ReplyKeyboardRemove()

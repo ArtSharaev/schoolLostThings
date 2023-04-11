@@ -1,5 +1,5 @@
 import logging
-from flask_app import app
+from flask_app import application
 
 logging.basicConfig(format=u'%(filename)+13s [ LINE:%(lineno)-4s]'
                            u' %(levelname)-8s [%(asctime)s] %(message)s',
@@ -8,4 +8,4 @@ logging.basicConfig(format=u'%(filename)+13s [ LINE:%(lineno)-4s]'
                     filemode='w')
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080, debug=True)
+    application.run(host='0.0.0.0')
