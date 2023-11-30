@@ -31,4 +31,9 @@ async def shutdown(dispatcher: Dispatcher) -> None:
 
 
 if __name__ == '__main__':
-    executor.start_polling(dp)
+    while True:
+        try:
+            executor.start_polling(dp, skip_updates=True)
+        except Exception as exc:
+            print(exc)
+            continue
